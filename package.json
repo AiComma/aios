@@ -9,7 +9,7 @@
     "build": "plasmo build",
     "package": "plasmo package",
     "prepare": "husky",
-    "release": "bumpp --commit --tag --no-push"
+    "release": "bumpp --commit --tag"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",

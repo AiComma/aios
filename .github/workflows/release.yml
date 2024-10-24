@@ -37,3 +37,6 @@ jobs:
         with:
           keys: ${{ secrets.BPP_KEYS }}
           artifact: build/chrome-mv3-prod.zip
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
