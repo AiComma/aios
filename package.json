@@ -1,8 +1,8 @@
 {
   "name": "aios",
-  "displayName": "Aios",
+  "displayName": "Ai OS",
   "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
+  "description": "An OS with AI first",
   "author": "luz.liting@gmail.com",
   "scripts": {
     "dev": "plasmo dev",
