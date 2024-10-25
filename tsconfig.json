@@ -1,7 +1,5 @@
 {
   "extends": "plasmo/templates/tsconfig.base",
-  "exclude": ["node_modules"],
-  "include": [".plasmo/index.d.ts", "./**/*.ts", "./**/*.tsx"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -11,5 +9,7 @@
       "@/hooks/*": ["./src/hooks/*"],
       "@/utils/*": ["src/utils/*"]
     }
-  }
+  },
+  "include": [".plasmo/index.d.ts", "./**/*.ts", "./**/*.tsx"],
+  "exclude": ["node_modules"]
 }

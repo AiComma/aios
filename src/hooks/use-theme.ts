@@ -1,22 +1,22 @@
-import { useEffect } from "react"
+import { useStorage } from '@plasmohq/storage/hook'
 
-import { useStorage } from "@plasmohq/storage/hook"
+import { useEffect } from 'react'
 
 export function useTheme() {
-  const [theme, setTheme] = useStorage<"system" | "light" | "dark">(
-    "theme",
-    (v) => (v === undefined ? "system" : v)
+  const [theme, setTheme] = useStorage<'system' | 'light' | 'dark'>(
+    'theme',
+    v => (v === undefined ? 'system' : v),
   )
 
   useEffect(() => {
     const root = window.document.documentElement
-    root.classList.remove("light", "dark")
+    root.classList.remove('light', 'dark')
 
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+    if (theme === 'system') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
         .matches
-        ? "dark"
-        : "light"
+        ? 'dark'
+        : 'light'
 
       root.classList.add(systemTheme)
       return
@@ -27,6 +27,6 @@ export function useTheme() {
 
   return {
     theme,
-    setTheme
+    setTheme,
   }
 }
