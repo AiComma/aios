@@ -45,11 +45,6 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.3.3"
   },
-  "manifest": {
-    "host_permissions": [
-      "https://*/*"
-    ]
-  },
   "lint-staged": {
     "*": "eslint --fix"
   }
