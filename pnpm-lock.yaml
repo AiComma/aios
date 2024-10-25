@@ -33,6 +33,12 @@ importers:
       '@eslint-react/eslint-plugin':
         specifier: ^1.15.0
         version: 1.15.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.3.3)
+      '@parcel/optimizer-data-url':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
+      '@parcel/transformer-inline-string':
+        specifier: 2.9.3
+        version: 2.9.3(@parcel/core@2.9.3)
       '@types/chrome':
         specifier: 0.0.258
         version: 0.0.258
@@ -5356,7 +5362,7 @@ snapshots:
       '@parcel/fs-search': 2.9.3
       '@parcel/types': 2.9.3(@parcel/core@2.9.3)
       '@parcel/utils': 2.9.3
-      '@parcel/watcher': 2.2.0
+      '@parcel/watcher': 2.4.1
       '@parcel/workers': 2.9.3(@parcel/core@2.9.3)
 
   '@parcel/graph@2.9.3':
@@ -5498,7 +5504,7 @@ snapshots:
       '@parcel/types': 2.9.3(@parcel/core@2.9.3)
       '@parcel/utils': 2.9.3
       '@parcel/workers': 2.9.3(@parcel/core@2.9.3)
-      semver: 7.5.4
+      semver: 7.6.3
 
   '@parcel/packager-css@2.9.3(@parcel/core@2.9.3)':
     dependencies:
