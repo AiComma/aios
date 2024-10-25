@@ -1,4 +1,7 @@
-# AI OS
+<h1>
+  <img src="./assets/icon.png" alt="logo" width="24" />
+  AI OS
+</h1>
 
 ## 目标
 
