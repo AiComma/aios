@@ -1,5 +1,5 @@
+import bgImage from '../assets/wallpaper-default.jpg'
 import '@/style.css'
-import bgImage from '/assets/wallpaper-default.jpg'
 
 function IndexNewTab() {
   return (
