@@ -1,3 +1,5 @@
 # Privacy Policy
 
-The latest version does not collect any information yet.
+## Storage
+
+Currently only **storage** is used to cache the last selected color theme.
