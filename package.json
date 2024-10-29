@@ -1,7 +1,7 @@
 {
   "name": "aios",
   "displayName": "AI OS",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An OS with AI first",
   "author": "luz.liting@gmail.com",
   "scripts": {
