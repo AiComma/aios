@@ -1,11 +1,27 @@
 import { BorderTrail } from '@/components/motion/border-trail'
 import { TextEffect } from '@/components/motion/text-effect'
 import { Button } from '@/components/ui/button'
-import { DesktopIcon, GitHubLogoIcon } from '@radix-ui/react-icons'
+import { useTheme } from '@/hooks/use-theme'
+import { DesktopIcon, GitHubLogoIcon, MoonIcon, SunIcon, SymbolIcon } from '@radix-ui/react-icons'
 import bgImage from '../assets/wallpaper-default.jpg'
 import '@/style.css'
 
 function IndexNewTab() {
+  const { theme, setTheme } = useTheme()
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark')
+      return
+    }
+
+    if (theme === 'system') {
+      setTheme('light')
+      return
+    }
+
+    setTheme('system')
+  }
+
   return (
     <main
       className="  flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat "
@@ -33,6 +49,17 @@ function IndexNewTab() {
               Github
             </Button>
           </a>
+          <Button size="icon" onClick={toggleTheme}>
+            {
+              theme === 'light'
+                ? <SunIcon />
+                : (
+                    theme === 'dark'
+                      ? <MoonIcon />
+                      : <SymbolIcon />
+                  )
+            }
+          </Button>
         </div>
         <BorderTrail
           className="bg-gradient-to-l from-blue-500 to-green-500"
