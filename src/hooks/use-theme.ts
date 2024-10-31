@@ -1,5 +1,4 @@
 import { useStorage } from '@plasmohq/storage/hook'
-
 import { useEffect } from 'react'
 
 export function useTheme() {
