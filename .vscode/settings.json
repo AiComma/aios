@@ -1,5 +1,12 @@
 {
-  "cSpell.words": ["aios", "bumpp", "plasmo", "plasmohq"],
+  "cSpell.words": [
+    "ahooks",
+    "aios",
+    "bumpp",
+    "iconify",
+    "plasmo",
+    "plasmohq"
+  ],
 
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
