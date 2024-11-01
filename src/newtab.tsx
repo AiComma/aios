@@ -3,7 +3,7 @@ import { TextEffect } from '@/components/motion/text-effect'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/hooks/use-theme'
 import { DesktopIcon, GitHubLogoIcon, MoonIcon, SunIcon, SymbolIcon } from '@radix-ui/react-icons'
-import bgImage from '../assets/wallpaper-default.jpg'
+import bgImage from '~assets/wallpaper-default.jpg'
 import '@/style.css'
 
 function IndexNewTab() {
@@ -24,7 +24,7 @@ function IndexNewTab() {
 
   return (
     <main
-      className="  flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat "
+      className="flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat"
       style={{
         backgroundImage: `url('${bgImage}')`,
       }}
