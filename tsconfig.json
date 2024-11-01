@@ -3,13 +3,37 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/ui/*": ["./src/components/ui/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/utils/*": ["src/utils/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ],
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/ui/*": [
+        "./src/components/ui/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": [".plasmo/index.d.ts", "./**/*.ts", "./**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    ".plasmo/index.d.ts",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "./**/*.ts",
+    "./**/*.tsx",
+    "next.config.mts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
