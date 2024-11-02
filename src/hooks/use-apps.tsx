@@ -20,7 +20,7 @@ export const APPS_DEFAULT: App[] = [
   {
     i: 'settings',
     label: 'Settings',
-    icon: iconSettings,
+    icon: iconSettings as unknown as string,
     w: 1,
     h: 1,
     x: 0,
@@ -33,7 +33,7 @@ export const APPS_DEFAULT: App[] = [
     i: 'github',
     label: 'Github',
     url: 'https://github.com/AiComma/aios',
-    icon: iconGithub,
+    icon: iconGithub as unknown as string,
     w: 1,
     h: 1,
     x: 0,
