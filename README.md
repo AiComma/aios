@@ -1,19 +1,21 @@
 <h1>
-  <img src="./assets/icon.png" alt="logo" width="24" />
+  <img src="./assets/icon.png" alt="logo" width="32" />
   AI OS
 </h1>
 
-## 目标
+A quasi-operating system in chrome extension that integrates all functions.
 
-在浏览器内提供操作系统级别的强大、丰富的功能体验
+## Features
 
-## 功能
+> [view task progress](https://github.com/orgs/AiComma/projects/3)
 
-- [ ] 基础功能
-  - [ ] 屏保壁纸
-  - [ ] 搜索导航
-  - [ ] 快捷入口
-
-## 原则
-
-AI 优先
+- [ ] screensaver wallpaper
+- [ ] app management desktop
+- [ ] search engines support
+- [ ] tabs management
+- [ ] browsing history management
+- [ ] smart screenshot and screen recording
+- [ ] AI question answering
+  - [ ] text translation
+  - [ ] pages knowledge base Q&A
+- [ ] _more interesting features_
