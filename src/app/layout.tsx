@@ -16,8 +16,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <header className="flex h-16 items-center justify-between px-6">
+      <body className="pt-16">
+        <header className="fixed inset-0 flex h-16 items-center justify-between bg-white/50 px-6 backdrop-blur-md">
           <div className="relative flex items-center gap-2">
             <Image src="/logo.svg" width={32} height={32} alt="Logo" />
             <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-3xl font-bold text-transparent">AI OS</span>
