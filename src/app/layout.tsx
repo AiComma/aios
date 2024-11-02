@@ -18,11 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="pt-16">
         <header className="fixed inset-0 flex h-16 items-center justify-between bg-white/50 px-6 backdrop-blur-md">
-          <div className="relative flex items-center gap-2">
+          <Link href="/" className="relative flex items-center gap-2">
             <Image src="/logo.svg" width={32} height={32} alt="Logo" />
             <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-3xl font-bold text-transparent">AI OS</span>
             <span className="absolute -right-6 -top-2 rounded-bl-md  rounded-tr-md bg-gradient-to-r from-orange-500 to-purple-500 p-0.5 text-xs text-white">WIP</span>
-          </div>
+          </Link>
           <div className="flex items-center gap-2">
             <Link href="/policies/privacy">
               <Button variant="ghost">
