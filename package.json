@@ -2,7 +2,7 @@
   "name": "aios",
   "displayName": "AI OS",
   "version": "0.0.2",
-  "description": "An OS with AI first",
+  "description": "A quasi-operating system in chrome extension that integrates all functions.",
   "author": "luz.liting@gmail.com",
   "scripts": {
     "dev": "pnpm dev:plasmo & pnpm dev:next",
