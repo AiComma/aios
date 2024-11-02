@@ -47,8 +47,7 @@ export const APPS_DEFAULT: App[] = [
 export function useApps() {
   const [apps, setApps] = useStorage<App[]>(
     'apps',
-    APPS_DEFAULT,
-    // v => (v === undefined ? APPS_DEFAULT : v),
+    v => (v === undefined ? APPS_DEFAULT : v),
   )
 
   const addApp = (app: App) => {
