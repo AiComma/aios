@@ -2,7 +2,6 @@ import { BorderTrail } from '@/components/motion/border-trail'
 import { TextEffect } from '@/components/motion/text-effect'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/hooks/use-theme'
-import { DesktopIcon, GitHubLogoIcon, MoonIcon, SunIcon, SymbolIcon } from '@radix-ui/react-icons'
 import bgImage from '~assets/wallpaper-default.jpg'
 import '@/style.css'
 
@@ -39,24 +38,24 @@ function IndexNewTab() {
         <div className="flex items-center gap-2">
           <a href="/tabs/desktop.html">
             <Button>
-              <DesktopIcon />
+              <i className="icon-[mdi--desktop-windows]" />
               Desktop
             </Button>
           </a>
           <a rel="noreferrer noopener" href="https://github.com/AiComma/aios.git" target="_blank">
             <Button variant="secondary">
-              <GitHubLogoIcon />
+              <i className="icon-[mdi--github]" />
               Github
             </Button>
           </a>
-          <Button size="icon" onClick={toggleTheme}>
+          <Button className="text-base" size="icon" onClick={toggleTheme}>
             {
               theme === 'light'
-                ? <SunIcon />
+                ? <i className="icon-[mdi--white-balance-sunny]"></i>
                 : (
                     theme === 'dark'
-                      ? <MoonIcon />
-                      : <SymbolIcon />
+                      ? <i className="icon-[mdi--moon-and-stars]"></i>
+                      : <i className="icon-[fluent--system-24-filled]"></i>
                   )
             }
           </Button>

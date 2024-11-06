@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button'
-import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import Image from 'next/image'
 import Link from 'next/link'
 import '@/style.css'
@@ -30,8 +29,8 @@ export default function RootLayout({
               </Button>
             </Link>
             <a href="https://github.com/AiComma/aios.git" target="_blank" rel="noreferrer noopener">
-              <Button variant="ghost" size="icon">
-                <GitHubLogoIcon />
+              <Button variant="ghost" size="icon" className="text-base">
+                <i className="icon-[mdi--github]" />
               </Button>
             </a>
           </div>
