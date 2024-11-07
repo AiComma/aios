@@ -1,7 +1,7 @@
 import { BorderTrail } from '@/components/motion/border-trail'
 import { TextEffect } from '@/components/motion/text-effect'
-import { Button } from '@/components/ui/button'
 import { useTheme } from '@/hooks/use-theme'
+import { Button } from '@nextui-org/react'
 import bgImage from '~assets/wallpaper-default.jpg'
 import '@/style.css'
 
@@ -37,18 +37,18 @@ function IndexNewTab() {
         </TextEffect>
         <div className="flex items-center gap-2">
           <a href="/tabs/desktop.html">
-            <Button>
+            <Button color="primary" size="sm">
               <i className="icon-[mdi--desktop-windows]" />
               Desktop
             </Button>
           </a>
           <a rel="noreferrer noopener" href="https://github.com/AiComma/aios.git" target="_blank">
-            <Button variant="secondary">
+            <Button color="secondary" variant="ghost" size="sm">
               <i className="icon-[mdi--github]" />
               Github
             </Button>
           </a>
-          <Button className="text-base" size="icon" onClick={toggleTheme}>
+          <Button className="text-base" color="success" isIconOnly size="sm" variant="ghost" onClick={toggleTheme}>
             {
               theme === 'light'
                 ? <i className="icon-[mdi--white-balance-sunny]"></i>

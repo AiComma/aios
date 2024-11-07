@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@nextui-org/react'
 import '@/style.css'
 
 function IndexPopup() {
@@ -11,17 +11,17 @@ function IndexPopup() {
       <p className="text-sm text-gray-500">A quasi-operating system in chrome extension that integrates all functions.</p>
       <div className="mt-2 flex items-center gap-2">
         <a href="/tabs/desktop.html" target="_blank">
-          <Button variant="ghost" size="icon" className="text-base">
+          <Button variant="light" size="sm" isIconOnly className="text-base">
             <i className="icon-[mdi--desktop-windows]" />
           </Button>
         </a>
         <a href="https://ai-os.netlify.app/" target="_blank" rel="noreferrer noopener">
-          <Button variant="ghost" size="icon" className="text-base">
+          <Button variant="light" size="sm" isIconOnly className="text-base">
             <i className="icon-[mdi--file-document-outline]"></i>
           </Button>
         </a>
         <a href="https://github.com/AiComma/aios.git" target="_blank" rel="noreferrer noopener">
-          <Button variant="ghost" size="icon" className="text-base">
+          <Button variant="light" size="sm" isIconOnly className="text-base">
             <i className="icon-[mdi--github]" />
           </Button>
         </a>

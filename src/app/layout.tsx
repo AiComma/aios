@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import '@/style.css'
@@ -24,12 +24,12 @@ export default function RootLayout({
           </Link>
           <div className="flex items-center gap-2">
             <Link href="/policies/privacy">
-              <Button variant="ghost">
+              <Button variant="light">
                 Privacy policy
               </Button>
             </Link>
             <a href="https://github.com/AiComma/aios.git" target="_blank" rel="noreferrer noopener">
-              <Button variant="ghost" size="icon" className="text-base">
+              <Button variant="light" isIconOnly className="text-base">
                 <i className="icon-[mdi--github]" />
               </Button>
             </a>

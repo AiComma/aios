@@ -1,1 +1,1 @@
-export * from './shadcn'
+export * from './tailwindcss'
