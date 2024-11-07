@@ -5,7 +5,7 @@ import iconSettings from '~assets/icons/settings.png'
 interface App {
   i: string
   label: string
-  url?: string
+  url: string
   icon: string
   w: number
   h: number
@@ -20,6 +20,7 @@ export const APPS_DEFAULT: App[] = [
   {
     i: 'settings',
     label: 'Settings',
+    url: '/tabs/settings.html',
     icon: iconSettings as unknown as string,
     w: 1,
     h: 1,

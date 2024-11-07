@@ -20,15 +20,23 @@ function TabDesktop() {
       const app = apps.find(a => a.i === item.i)
 
       return ({
+        ...app,
         ...item,
-        label: app.label,
-        icon: app.icon,
       })
     }))
   }
+
+  const navigate = (url: any) => {
+    window.open(url)
+  }
   const appsCards = useMemo(() => apps.map((app) => {
     return (
-      <div key={app.i} data-grid={app} className="flex cursor-pointer flex-col items-center justify-center gap-1 rounded-lg bg-white/40 p-2 backdrop-blur">
+      <div
+        key={app.i}
+        data-grid={{ ...app, isDraggable: false }}
+        className="flex cursor-pointer flex-col items-center justify-center gap-1 rounded-lg bg-white/40 p-2 backdrop-blur"
+        onClickCapture={() => navigate(app.url)}
+      >
         <img src={app.icon} className="w-2/3" />
         <label className="text-xs">{app.label}</label>
         <BorderTrail
