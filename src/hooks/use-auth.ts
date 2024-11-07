@@ -10,23 +10,23 @@ export function useAuth() {
 
   const login = () => {
     chrome.identity.getProfileUserInfo(null, ({ email }) => {
-      setAuth({
-        ...auth,
-        email,
+      chrome.identity.getAuthToken({ interactive: true }, (token) => {
+        setAuth({
+          email,
+          token,
+        })
       })
     })
-
-    chrome.identity.getAuthToken({ interactive: true }, (token) => {
-      setAuth({
-        ...auth,
-        token,
-      })
-    })
+  }
+  const logout = () => {
+    chrome.identity.clearAllCachedAuthTokens()
+    setAuth(undefined)
   }
 
   return {
     auth,
     setAuth,
     login,
+    logout,
   }
 }
