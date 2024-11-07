@@ -1,3 +1,4 @@
+import { Storage } from '@plasmohq/storage'
 import { useStorage } from '@plasmohq/storage/hook'
 import iconGithub from '~assets/icons/github.png'
 import iconSettings from '~assets/icons/settings.png'
@@ -47,7 +48,13 @@ export const APPS_DEFAULT: App[] = [
 
 export function useApps() {
   const [apps, setApps] = useStorage<App[]>(
-    'apps',
+    {
+      key: 'apps',
+      instance: new Storage({
+        area: 'local',
+        allCopied: true,
+      }),
+    },
     v => (v === undefined ? APPS_DEFAULT : v),
   )
 
