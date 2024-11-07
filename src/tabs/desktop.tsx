@@ -2,8 +2,8 @@
 import { BorderTrail } from '@/components/motion/border-trail'
 import { useApps } from '@/hooks/use-apps'
 import bgImage from '~assets/wallpaper-default.jpg'
-import { useSize } from 'ahooks'
-import { useMemo, useRef } from 'react'
+import { useEventListener, useSize } from 'ahooks'
+import { useCallback, useMemo, useRef } from 'react'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 import '../../node_modules/react-grid-layout/css/styles.css'
 import '../../node_modules/react-resizable/css/styles.css'
@@ -26,16 +26,35 @@ function TabDesktop() {
     }))
   }
 
-  const navigate = (url: any) => {
-    window.open(url)
-  }
+  const timer = useRef(null)
+  const targetUrl = useRef(null)
+  const onPointerDown = useCallback((url: string) => {
+    targetUrl.current = url
+    timer.current = setTimeout(() => {
+      clearTimeout(timer.current)
+      timer.current = null
+      targetUrl.current = null
+    }, 300)
+  }, [timer, targetUrl])
+  useEventListener('pointerup', () => {
+    if (!timer.current) {
+      return
+    }
+
+    clearTimeout(timer.current)
+    timer.current = null
+
+    targetUrl.current && window.open(targetUrl.current)
+    targetUrl.current = null
+  })
+
   const appsCards = useMemo(() => apps.map((app) => {
     return (
       <div
         key={app.i}
-        data-grid={{ ...app, isDraggable: false }}
+        data-grid={{ ...app }}
         className="flex cursor-pointer flex-col items-center justify-center gap-1 rounded-lg bg-white/40 p-2 backdrop-blur"
-        onClickCapture={() => navigate(app.url)}
+        onPointerDown={() => onPointerDown(app.url)}
       >
         <img src={app.icon} className="w-2/3" />
         <label className="text-xs">{app.label}</label>
@@ -44,7 +63,7 @@ function TabDesktop() {
         />
       </div>
     )
-  }), [apps])
+  }), [apps, onPointerDown])
 
   return (
     <main
