@@ -23,12 +23,12 @@ export default function IndexNewTab() {
     <main
       className="relative flex h-screen w-screen justify-center bg-cover bg-no-repeat pt-20"
     >
-      <img className="absolute inset-0 z-[-1] size-full object-cover" src={bgImage as string} />
-      <div>
+      <img className={`fixed inset-0 z-[-1] size-full object-cover transition-transform ${focusSearch ? 'scale-105' : ''}`} src={bgImage as string} />
+      <div className={`fixed inset-0 flex size-full flex-col items-center pt-40 ${focusSearch ? 'backdrop-blur' : ''}`}>
         <div className="mb-4 text-center text-2xl font-semibold text-white">
           {formatDate(timestamp)}
         </div>
-        <div className={`flex h-10 w-80 items-center gap-2 rounded-full bg-white/50 px-2 py-1 backdrop-blur transition-width ${focusSearch ? 'w-96' : ''}`}>
+        <div className={`flex h-10 w-80 items-center gap-2 rounded-full bg-white/50 px-2 py-1 backdrop-blur transition-width ${focusSearch ? '!w-96' : ''}`}>
           <Dropdown placement="bottom-start">
             <DropdownTrigger>
               <Button isIconOnly variant="light" size="sm" radius="full" aria-label={engine.label}>
