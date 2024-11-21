@@ -1,72 +1,58 @@
-import { BorderTrail } from '@/components/motion/border-trail'
-import { TextEffect } from '@/components/motion/text-effect'
-import { useTheme } from '@/hooks/use-theme'
-import { Button } from '@nextui-org/react'
-import bgImage from '~assets/wallpaper-default.jpg'
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react'
+import { useState } from 'react'
+import bgImage from 'url:../assets/wallpaper-default.jpg'
+import { SEARCH_ENGINES } from './constants/search'
+import { useTimestamp } from './hooks/use-timestamp'
+import { formatDate } from './utils/date'
 import '@/style.css'
 
-function IndexNewTab() {
-  const { theme, setTheme } = useTheme()
-  const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark')
-      return
-    }
+export default function IndexNewTab() {
+  const { timestamp } = useTimestamp()
 
-    if (theme === 'system') {
-      setTheme('light')
-      return
-    }
+  const [engine, setEngine] = useState(SEARCH_ENGINES.GOOGLE)
+  const [engineKey, setEngineKey] = useState(new Set([SEARCH_ENGINES.GOOGLE.label]))
 
-    setTheme('system')
+  const [focusSearch, setFocusSearch] = useState(false)
+
+  const [searchKey, setSearchKey] = useState('')
+  const search = () => {
+    window.open(engine.url + searchKey, '_blank')
   }
 
   return (
     <main
-      className="flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat"
-      style={{
-        backgroundImage: `url('${bgImage}')`,
-      }}
+      className="relative flex h-screen w-screen justify-center bg-cover bg-no-repeat pt-20"
     >
-      <div className="relative flex w-80 origin-center flex-col items-center gap-4 rounded-lg bg-transparent p-6 backdrop-blur hover:shadow-md">
-        <TextEffect as="h1" per="char" className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-4xl font-bold text-transparent">
-          AI OS
-        </TextEffect>
-        <TextEffect as="h1" per="char" delay={0.3} className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-2xl text-transparent">
-          An OS with AI first.
-        </TextEffect>
-        <div className="flex items-center gap-2">
-          <a href="/tabs/desktop.html">
-            <Button color="primary" size="sm">
-              <i className="icon-[mdi--desktop-windows]" />
-              Desktop
-            </Button>
-          </a>
-          <a rel="noreferrer noopener" href="https://github.com/AiComma/aios.git" target="_blank">
-            <Button color="secondary" variant="ghost" size="sm">
-              <i className="icon-[mdi--github]" />
-              Github
-            </Button>
-          </a>
-          <Button className="text-base" color="success" isIconOnly size="sm" variant="ghost" onClick={toggleTheme}>
-            {
-              theme === 'light'
-                ? <i className="icon-[mdi--white-balance-sunny]"></i>
-                : (
-                    theme === 'dark'
-                      ? <i className="icon-[mdi--moon-and-stars]"></i>
-                      : <i className="icon-[fluent--system-24-filled]"></i>
-                  )
-            }
+      <img className="absolute inset-0 z-[-1] size-full object-cover" src={bgImage as string} />
+      <div>
+        <div className="mb-4 text-center text-2xl font-semibold text-white">
+          {formatDate(timestamp)}
+        </div>
+        <div className={`flex h-10 w-80 items-center gap-2 rounded-full bg-white/50 px-2 py-1 backdrop-blur transition-width ${focusSearch ? 'w-96' : ''}`}>
+          <Dropdown placement="bottom-start">
+            <DropdownTrigger>
+              <Button isIconOnly variant="light" size="sm" radius="full" aria-label={engine.label}>
+                <i className={`${engine.icon} size-5`} />
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              disallowEmptySelection
+              selectionMode="single"
+              selectedKeys={engineKey}
+              onSelectionChange={(keys: Set<string>) => setEngineKey(keys)}
+              onAction={key => setEngine(Object.values(SEARCH_ENGINES).find(item => item.label === key))}
+            >
+              {
+                Object.values(SEARCH_ENGINES).map(item => <DropdownItem key={item.label} startContent={<i className={`${item.icon} size-6`} />} description={item.url}>{item.label}</DropdownItem>)
+              }
+            </DropdownMenu>
+          </Dropdown>
+          <input className="flex-1 bg-transparent text-base  focus:outline-none" value={searchKey} onInput={e => setSearchKey(e.currentTarget.value)} placeholder="Search" onFocus={() => setFocusSearch(true)} onBlur={() => setFocusSearch(false)} onKeyDown={e => e.key === 'Enter' && search()} />
+          <Button isIconOnly variant="light" size="sm" radius="full" color={focusSearch ? 'primary' : 'default'} aria-label="Search" onClick={search}>
+            <i className="icon-[mdi--search] size-5" />
           </Button>
         </div>
-        <BorderTrail
-          className="bg-gradient-to-l from-blue-500 to-green-500"
-          size={120}
-        />
       </div>
     </main>
   )
 }
-
-export default IndexNewTab
